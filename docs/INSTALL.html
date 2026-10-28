@@ -13,6 +13,12 @@
 <li><b>Ableton Live:</b> JENITOR VST3, routed to an instrument on another MIDI track.</li>
 <li><b>Other hosts:</b> JENITOR VST3 or the AU instrument, using the host's MIDI routing.</li></ul>
 <p>JENITOR outputs MIDI only. It includes no sound engine.</p>
+<h2>Manual install: plugin files only</h2>
+<p>Separate VST3 and AU ZIPs are available on the release page. Extract a ZIP and close your DAW. In Finder, choose <b>Go → Go to Folder...</b>, then copy the entire plugin bundles into these folders (create them if missing):</p>
+<pre>JENITOR.vst3 → ~/Library/Audio/Plug-Ins/VST3/
+JENITOR.component → ~/Library/Audio/Plug-Ins/Components/
+JENITOR MFX.component → ~/Library/Audio/Plug-Ins/Components/</pre>
+<p>Restart and rescan the DAW. Home-Library installation normally needs no administrator password. Keep one copy of each format; move older duplicates outside scan folders. The same macOS approval/quarantine considerations below apply to manually copied downloads.</p>
 <h2>Live routing and virtual MIDI timing</h2>
 <p>Use one JENITOR instance. For direct VST3 routing, set the receiving instrument track's upper <b>MIDI From</b> chooser to the numbered JENITOR track, then the lower chooser to <b>JENITOR</b>, with <b>Monitor: In</b>.</p>
 <p>For AU or VST3 virtual routing, select the external <b>JENITOR</b> port on the receiving instrument track. Set <b>Virtual Port Lead: Auto</b> in JENITOR's MIDI socket menu, then run <b>Settings (gear) → Calibrate virtual MIDI timing...</b>. The PDF manual's page 13 explains the temporary source-track loopback, muting, restart and save steps. No second JENITOR plugin is needed.</p>
