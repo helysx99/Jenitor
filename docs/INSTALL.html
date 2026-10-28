@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Install JENITOR</title>
+<style>body{font:16px -apple-system,BlinkMacSystemFont,sans-serif;background:#f3f1ea;color:#171d20;line-height:1.6;max-width:740px;margin:40px auto;padding:0 24px}h1{letter-spacing:.12em}h2{font-size:20px;margin-top:30px}code{font-size:13px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#e5e3dc;padding:16px;border-radius:8px}a{color:#086a58}</style></head><body>
+<h1>JENITOR</h1><p>Free MIDI sequencer · macOS 14+ · Apple Silicon and Intel</p>
+<h2>Install</h2><ol>
+<li>Close your DAW. Extract the downloaded ZIP.</li>
+<li>Open the JENITOR installer package beside this guide.</li>
+<li>If macOS blocks it, open <b>System Settings → Privacy &amp; Security</b>. After attempting to open the package, scroll down and choose <b>Open Anyway</b>, then confirm. Only approve a download you trust.</li>
+<li>Follow Installer's steps. It may ask for an administrator password. Choose <b>Customize</b> to select AU or VST3 formats.</li>
+<li>Restart your DAW and rescan plugins if necessary.</li></ol>
+<p>The package is unsigned. The plugin binaries have valid ad-hoc signatures, but no Apple-verified developer identity or notarization. macOS may require the approval above. Managed Macs may prohibit overrides.</p>
+<h2>Which plugin?</h2><ul><li><b>Logic Pro:</b> JENITOR MFX in the MIDI FX slot of a software-instrument track.</li>
+<li><b>Ableton Live:</b> JENITOR VST3, routed to an instrument on another MIDI track.</li>
+<li><b>Other hosts:</b> JENITOR VST3 or the AU instrument, using the host's MIDI routing.</li></ul>
+<p>JENITOR outputs MIDI only. It includes no sound engine.</p>
+<h2>Installation locations</h2><p>The installer installs for all users:</p>
+<pre>/Library/Audio/Plug-Ins/Components/JENITOR.component
+/Library/Audio/Plug-Ins/Components/JENITOR MFX.component
+/Library/Audio/Plug-Ins/VST3/JENITOR.vst3</pre>
+<p>If you previously installed copies under your home folder's <code>Library/Audio/Plug-Ins</code>, move those JENITOR copies elsewhere before installing. Two versions with the same plugin identity can confuse your DAW's scanner. Saved DAW projects are separate from these plugin bundles.</p>
+<h2>If the installed plugin is still blocked</h2><p>First restart the DAW and rescan. If the host explicitly reports download quarantine, this optional command removes that attribute from only the three system-installed JENITOR bundles. It does not sign or notarize them:</p>
+<pre>sudo xattr -dr com.apple.quarantine \
+  /Library/Audio/Plug-Ins/VST3/JENITOR.vst3 \
+  /Library/Audio/Plug-Ins/Components/JENITOR.component \
+  "/Library/Audio/Plug-Ins/Components/JENITOR MFX.component"</pre>
+<p>For manually installed copies in your home folder, use this instead; no <code>sudo</code> is normally needed:</p>
+<pre>xattr -dr com.apple.quarantine \
+  "$HOME/Library/Audio/Plug-Ins/VST3/JENITOR.vst3" \
+  "$HOME/Library/Audio/Plug-Ins/Components/JENITOR.component" \
+  "$HOME/Library/Audio/Plug-Ins/Components/JENITOR MFX.component"</pre>
+<p>Run commands only for files from a source you trust. You do not need to disable Gatekeeper globally.</p>
+<h2>Uninstall</h2><p>Close the DAW, then move the JENITOR bundles listed above to Trash. Also check the same folders under your home Library if you installed copies manually.</p>
+<p><a href="https://support.apple.com/102445">Apple: opening software from an unidentified developer</a></p>
+</body></html>
