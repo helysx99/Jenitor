@@ -35,10 +35,16 @@ If you have older JENITOR copies under your home folder's `Library/Audio/Plug-In
 | Host | Format | Routing |
 |---|---|---|
 | Logic Pro | **JENITOR MFX** / AU MIDI FX | Insert in a software-instrument track's MIDI FX slot, before its instrument. |
-| Ableton Live | **JENITOR VST3** | Load on one MIDI track. On a second instrument track, select the JENITOR track/plugin as **MIDI From** and set **Monitor: In**. |
+| Ableton Live | **JENITOR VST3** | Load on one MIDI track. On a second instrument track, set the upper **MIDI From** chooser to the **numbered JENITOR track** (e.g. **1-JENITOR**), the lower chooser to **JENITOR**, and **Monitor: In**. |
 | Other compatible hosts | **JENITOR VST3** or **AU instrument** | Route generated MIDI to a sound-producing instrument using the host's routing. |
 
 **JENITOR generates MIDI only. It does not contain a synthesizer or make sound by itself.** Start your DAW transport to play the pattern. A virtual CoreMIDI source is also available; avoid sending both routes to the same instrument if notes are doubled.
+
+## Ableton Live: avoid delayed live routing
+
+Use the **VST3** and the direct track route shown above. In the upper MIDI From chooser, select the **numbered track**, such as **1-JENITOR**. In the lower chooser, select **JENITOR**, not **Post FX**. The unnumbered **JENITOR** entry is the external virtual MIDI port. You can switch **Virtual Out off** in JENITOR when using the direct route.
+
+The virtual port can arrive late through Live’s external-input path. On the tested setup it measured about 58 ms late; the direct VST3 route arrived within one sample of the grid and the owner confirmed the audible delay was gone. A second clean Live instance confirmed direct timing again (120 BPM, 128 samples: median 0 ms); the virtual route was about 50 ms late there. Exported MIDI clips also stay on-grid. Virtual Port Lead applies only to the virtual port; its Auto setting advances one buffer and cannot guarantee compensation for every device/host setup.
 
 ## What you can do
 
