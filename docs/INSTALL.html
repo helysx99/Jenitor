@@ -13,6 +13,10 @@
 <li><b>Ableton Live:</b> JENITOR VST3, routed to an instrument on another MIDI track.</li>
 <li><b>Other hosts:</b> JENITOR VST3 or the AU instrument, using the host's MIDI routing.</li></ul>
 <p>JENITOR outputs MIDI only. It includes no sound engine.</p>
+<h2>Live routing and virtual MIDI timing</h2>
+<p>Use one JENITOR instance. For direct VST3 routing, set the receiving instrument track's upper <b>MIDI From</b> chooser to the numbered JENITOR track, then the lower chooser to <b>JENITOR</b>, with <b>Monitor: In</b>.</p>
+<p>For AU or VST3 virtual routing, select the external <b>JENITOR</b> port on the receiving instrument track. Set <b>Virtual Port Lead: Auto</b> in JENITOR's MIDI socket menu, then run <b>Settings (gear) → Calibrate virtual MIDI timing...</b>. The PDF manual's page 13 explains the temporary source-track loopback, muting, restart and save steps. No second JENITOR plugin is needed.</p>
+<p>Calibration is saved per output device, sample rate and buffer size. Recalibrate after changing the audio configuration or monitoring/routing. Existing saved Off/manual lead values stay unchanged on upgrade; select Auto to enable compensation. Use one receiving route to avoid doubled notes.</p>
 <h2>Installation locations</h2><p>The installer installs for all users:</p>
 <pre>/Library/Audio/Plug-Ins/Components/JENITOR.component
 /Library/Audio/Plug-Ins/Components/JENITOR MFX.component
