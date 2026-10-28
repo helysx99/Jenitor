@@ -1,6 +1,6 @@
 # JENITOR
 
-**A free generative, polyphonic MIDI sequencer for macOS by remeedee.**
+**A free generative, polyphonic MIDI sequencer for macOS by helysx99.**
 
 Create in-key melodies, chords and rhythms. Keep the parts you like with lane locks, then explore new variations with Randomize and Entropy.
 
